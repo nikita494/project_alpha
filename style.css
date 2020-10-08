@@ -15,10 +15,11 @@ body, html {
 	background-color: black;
 	width: 100%;
 	height: 100%;
+	justify-content: space-around;
 }
 
 h2 {
-	font-size:  40px;
+	font-size:  3vw;
 }
 #change_oper_time_form{
 	display: none;
@@ -30,6 +31,7 @@ h2 {
 
 #operative_time_and_date{
 	color: red;
+	width: 100%
 }
 
 .flexbox {
@@ -45,36 +47,36 @@ h2 {
 }
 
 .time_label{
-	font-size: 45px;
+	font-size: 3.5vw;
 }
 
 .weekday{
-	font-size: 25px;
+	font-size: 2vw;
 }
 
 .time{
-	font-size: 65px;
+	font-size: 5.5vw;
 }
 
 .date{
-	font-size: 25px;
+	font-size: 2vw;
 }
 
 #oper_days_time > div{
 	flex: 1 1;
 	margin-top: 50px;
-	font-size: 30px;
+	font-size: 3.0vw;
 	text-align: center;
 	margin: 5px;
 }
 
 #oper_date{
-	font-size: 25px;
+	font-size: 2.5vw;
 }
 
 #oper_time, #oper_days{
 	vertical-align: middle;
-	font-size: 70px;
+	font-size:6vw;
 }
 
 #time{

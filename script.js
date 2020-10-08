@@ -17,7 +17,7 @@ function move_on(){
 function set_oper_time(){
 	real_start_date = new Date();
 	oper_date = new Date(document.forms['oper_time_setter']['oper_date_in'].value + ' ' + document.forms['oper_time_setter']['oper_time_in'].value);
-	oper_start_date = new Date(new Date(document.forms['oper_time_setter']['oper_date_in'].value)- 3 * 3600 * 1000- parseInt(document.forms['oper_time_setter']['oper_days_in'].value) * 24 * 3600 * 1000);
+	oper_start_date = new Date(new Date(document.forms['oper_time_setter']['oper_date_in'].value) - 3 * 3600 * 1000 - parseInt(document.forms['oper_time_setter']['oper_days_in'].value) * 24 * 3600 * 1000);
 	console.log(oper_start_date)
 	form_elm = document.getElementById('change_oper_time_form');
 	form_elm.style.display = 'none';
