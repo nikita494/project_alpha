@@ -1,0 +1,100 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+}
+#main {
+	margin: auto;
+	background-color: black;
+	width: 100%;
+	height: 100%;
+}
+
+h2 {
+	font-size:  40px;
+}
+#change_oper_time_form{
+	display: none;
+	position: absolute;
+	background: white;
+	
+	top: 10%;
+}
+
+#operative_time_and_date{
+	color: red;
+}
+
+.flexbox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.flex_row {
+	flex-direction: row;
+	width: 100%;
+}
+
+.time_label{
+	font-size: 45px;
+}
+
+.weekday{
+	font-size: 25px;
+}
+
+.time{
+	font-size: 65px;
+}
+
+.date{
+	font-size: 25px;
+}
+
+#oper_days_time > div{
+	flex: 1 1;
+	margin-top: 50px;
+	font-size: 30px;
+	text-align: center;
+	margin: 5px;
+}
+
+#oper_date{
+	font-size: 25px;
+}
+
+#oper_time, #oper_days{
+	vertical-align: middle;
+	font-size: 70px;
+}
+
+#time{
+	margin-top: 10%;
+	justify-content: space-around;
+	color: rgb(0, 255, 0);
+	text-align: center;
+}
+input{
+	display: block;
+	margin: auto;
+}
+
+#khsk > div{
+	margin-top: 20px;
+}
+
+#msc > div{
+	margin-top: 20px;
+}
+.flex_column{
+	flex-direction: column;
+}

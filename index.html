@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+<title>Final Countdown</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+<body>
+
+<div id='main'>
+<div id='change_oper_time_form'>
+<form name='oper_time_setter'>
+<label for='oper_time_in'>Введите оперативное время:</label>
+<input type='time' step='1' value='00:00:00' id='oper_time_in'/><br>
+<label for='oper_date_in'>Введите оперативное дату:</label>
+<input type='date' lang='ru' id='oper_date_in'/><br/>
+<label for='oper_days_in'>Введите оперативные сутки:</label>
+<input type='text' id='oper_days_in'/><br>
+<input type="button" value="Потвердить" onclick='set_oper_time()'>
+</form>
+</div>
+
+
+<div id='operative_time_and_date' class='flexbox flex_column'>
+
+<div onclick='move_on()'><h2>Оперативное время</h2></div>
+
+<div class='flexbox flex_row' id='oper_days_time'>
+
+<div><p><span style='vertical-align: middle;'>"Ч" + </span><span id ='oper_time'>00:00</span></p></div>
+<div><p>Сутки <span id='oper_days'>01</span></p></div>
+
+</div>
+
+<div><p id='oper_date'>1 января 1970 г.</p></div>
+
+</div>
+
+<div id='time' class='flexbox flex_row'>
+
+<div class='flexbox flex_column' id='msc'>
+
+<div class='time_label'>
+<p>
+Время</br> 
+Московское
+</p>
+</div>
+
+<div class='weekday'>Четверг</div>
+
+<div class='time'>00:00:00</div>
+
+<div class='date'>1 января 1970 г.</div>
+
+</div>
+
+<div class='flexbox flex_column' id='khsk'>
+
+<div class='time_label'>
+<p>
+Время</br> 
+Хабаровское
+</p>
+</div>
+
+<div class='weekday'>Четверг</div>
+
+<div class='time'>00:00:00</div>
+
+<div class='date'>1 января 1970 г.</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+</body>
+</html>
