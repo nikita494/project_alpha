@@ -12,10 +12,10 @@ var real_start_date;
 function move_on(){
 	form_elm = document.getElementById('change_oper_time_form');
 	if (form_elm.style.visibility == 'visible'){
-		form_elm.style.visibility = 'hidden'
+		form_elm.style.visibility = 'hidden';
 	}
 	else{
-		form_elm.style.visibility = 'visible'
+		form_elm.style.visibility = 'visible';
 	}
 }
 
@@ -34,7 +34,9 @@ function set_oper_time(){
 
 function mouse_out_over(is_over){
 	if (is_over){
-		document.getElementById('btn_set').style.visibility = (document.getElementById('change_oper_time_form').style.visibility == 'hidden') ? 'hidden' : 'visible';
+		document.getElementById('btn_set').style.visibility = 'hidden';
+		document.getElementById('change_oper_time_form').style.visibility = 'hidden';
+		
 	}
 	else{
 		document.getElementById('btn_set').style.visibility = 'visible';

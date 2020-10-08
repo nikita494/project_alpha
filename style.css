@@ -26,17 +26,16 @@ body, html {
 }
 
 #btn_set{
+	background-color: black;
 	visibility: hidden;
-	background-color: green;
-	border: 2px outset red;
-	color: red;
+	border: 2px outset green;
+	color: green;
 	font-size: 50px;
 }
 
 #btn_set:hover{
-	color: green;
-	background-color: red;
-	border: 2px inset green;
+	color: red;
+	border: 2px inset red;
 }
 
 h2 {
