@@ -11,15 +11,16 @@
 <div><button id='btn_set' onclick='move_on()'>&#9881;</button></div>
 
 <div id='change_oper_time_form'>
-<button onclick='move_on()' id='close_btn'>&#10060;</button>
-<form name='oper_time_setter'>
-<label for='oper_time_in'>Введите время:</label>
-<input list='hours' type='number' max='23' min='0' step='1' name='oper_hour_in' id='oper_hour_in'/>:<input list='minutes' type='number' max='59' min='0' step='1' name= 'oper_minute_in' id='oper_minute_in'/><br><br>
-<label for='oper_date_in'>Введите дату:</label>
-<input type='date' lang='ru' name='oper_date_in' id='oper_date_in'/><br/><br>
-<label for='oper_days_in'>Введите сутки:</label>
-<input type='number' min='0' name='oper_days_in' id='oper_days_in' style='width: 70px;'/><br><br>
-<input type="button" value="Потвердить" onclick='set_oper_time()' id='confirm_btn'/>
+<div id='form_header' class='flexbox flex_row'><label style='padding-left: 5px;'>Оперативное время</label><button onclick='move_on()' id='close_btn'>&#10060;</button></div>
+<form name='oper_time_setter' class='grid_container'>
+<div class='grid_item'><label for='oper_date_in'>Дата:</label></div>
+<div class='grid_item'><input type='date' lang='ru' name='oper_date_in' id='oper_date_in'/></div>
+<div class='grid_item'><label for='oper_days_in'>Сутки:</label></div>
+<div class='grid_item'><input type='number' min='0' name='oper_days_in' id='oper_days_in' style='width: 70px;'/></div>
+<div class='grid_item'><label for='oper_time_in'>Время:</label></div>
+<div class='grid_item'><input list='hours' type='number' max='23' min='0' step='1' name='oper_hour_in' id='oper_hour_in'/>:<input list='minutes' type='number' max='59' min='0' step='1' name= 'oper_minute_in' id='oper_minute_in'/></div>
+<div class='grid_item'><input type="button" value="Сброс" onclick='set_default()' id='clear_btn'/></div>
+<div class='grid_item'><input type="button" value="Потвердить" onclick='set_oper_time()' id='confirm_btn'/></div>
 </form>
 
 </div>

@@ -11,6 +11,16 @@ body, html {
 	height: 100vh;
 	background-color: black;
 }
+
+.grid_container{
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+.grid_item{
+	padding: 5px;
+}
+
 #main {
 	margin: auto;
 	width: 80%;
@@ -19,6 +29,7 @@ body, html {
 }
 
 input{
+	height: 20px;
 	color: white;
 	background: black;
 	border: 2px outset white;
@@ -28,6 +39,7 @@ input[type=button]{
 	display: block;
 	margin: auto;
 }
+
 #close_btn{
 	color: red;
 	background: black;
@@ -41,11 +53,24 @@ input[type=button]{
 	color: white;
 }
 
+#clear_btn{
+	background-color: red;
+	border-style: solid;
+	border-color: red;
+	border-width: 3px;
+	border-radius: 5px;
+	color: white;
+}
+
 #input_form_container{
 	position: absolute;
 	left: 10px;
 	top: 10px;
 	z-index: 3;
+}
+
+input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
 #btn_set{
@@ -69,13 +94,14 @@ h2 {
 }
 
 form[name=oper_time_setter]{
-	display: block;
+	padding: 10px;
 	margin-top: 10px;
-	border: 1px solid green;
+	background: black;
 }
 
 
 #change_oper_time_form{
+	border: 1px solid green;
 	visibility: hidden;
 	color: white;
 	
@@ -135,6 +161,10 @@ form[name=oper_time_setter]{
 	justify-content: space-around;
 	color: rgb(0, 255, 0);
 	text-align: center;
+}
+#form_header{
+	margin-top: 10px;
+	justify-content: space-between;
 }
 
 #khsk > div{
