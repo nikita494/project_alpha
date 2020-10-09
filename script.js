@@ -1,4 +1,4 @@
-function capitalizeFirstLetter(string) {
+﻿function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 function minTwoDigits(n) {
@@ -40,7 +40,13 @@ function move_on(){
 		can_close = true;
 	}
 	else{
+		date = new Date()
 		form_elm.style.visibility = 'visible';
+		d2 = new Date(date.toLocaleString('ru', {timeZone: 'Asia/Vladivostok'}))
+		document.getElementById('oper_date_in').value = d2.getFullYear() + '-' + minTwoDigits(d2.getDate()) + '-' + minTwoDigits(d2.getMonth());
+		document.forms['oper_time_setter']['oper_hour_in'].value = date.toLocaleString('ru', {timeZone: 'Asia/Vladivostok', hour: '2-digit'});
+		document.forms['oper_time_setter']['oper_minute_in'].value = date.toLocaleString('ru', {timeZone: 'Asia/Vladivostok', minute: '2-digit'});
+		document.forms['oper_time_setter']['oper_days_in'].value = 1;
 		can_close = false;
 	}
 }

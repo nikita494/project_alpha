@@ -1,4 +1,4 @@
-* {
+﻿* {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
@@ -21,6 +21,14 @@ body, html {
 	padding: 5px;
 }
 
+.left{
+	text-align: left;
+}
+
+.right{
+	text-align: right;
+}
+
 #main {
 	margin: auto;
 	width: 80%;
@@ -35,15 +43,21 @@ input{
 	border: 2px outset white;
 }
 
-input[type=button]{
+input[type="button"]{
 	display: block;
 	margin: auto;
+}
+
+input[type='number']{
+	width: 58px;
 }
 
 #close_btn{
 	color: red;
 	background: black;
+	margin-right: 14px;
 }
+
 #confirm_btn {
 	background-color: green;
 	border-style: solid;
@@ -51,6 +65,7 @@ input[type=button]{
 	border-width: 3px;
 	border-radius: 5px;
 	color: white;
+	display: inline-block;
 }
 
 #clear_btn{
@@ -60,6 +75,7 @@ input[type=button]{
 	border-width: 3px;
 	border-radius: 5px;
 	color: white;
+	display: inline-block;
 }
 
 #input_form_container{
@@ -101,6 +117,7 @@ form[name=oper_time_setter]{
 
 
 #change_oper_time_form{
+	background: black;
 	border: 1px solid green;
 	visibility: hidden;
 	color: white;
