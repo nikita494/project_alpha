@@ -11,20 +11,110 @@
 <div><button id='btn_set' onclick='move_on()'>&#9881;</button></div>
 
 <div id='change_oper_time_form'>
-
+<button onclick='move_on()' id='close_btn'>&#10060;</button>
 <form name='oper_time_setter'>
 <label for='oper_time_in'>Введите время:</label>
-<input type='number' max='23' min='0' step='1' value='0' name='oper_hour_in' id='oper_hour_in'/>:<input type='number' max='59' min='0' step='1' value='0' name= 'oper_minute_in' id='oper_minute_in'/><br><br>
+<input list='hours' type='number' max='23' min='0' step='1' name='oper_hour_in' id='oper_hour_in'/>:<input list='minutes' type='number' max='59' min='0' step='1' name= 'oper_minute_in' id='oper_minute_in'/><br><br>
 <label for='oper_date_in'>Введите дату:</label>
 <input type='date' lang='ru' name='oper_date_in' id='oper_date_in'/><br/><br>
 <label for='oper_days_in'>Введите сутки:</label>
-<input type='number' name='oper_days_in' id='oper_days_in' style='width: 70px;'/><br><br>
-<input type="button" value="Потвердить" onclick='set_oper_time()'>
+<input type='number' min='0' name='oper_days_in' id='oper_days_in' style='width: 70px;'/><br><br>
+<input type="button" value="Потвердить" onclick='set_oper_time()' id='confirm_btn'/>
 </form>
 
 </div>
-</div>
 
+<datalist id="hours">
+  <option value="0">
+  <option value="1">
+  <option value="2">
+  <option value="3">
+  <option value="4">
+  <option value="5">
+  <option value="6">
+  <option value="7">
+  <option value="8">
+  <option value="9">
+  <option value="10">
+  <option value="11">
+  <option value="12">
+  <option value="13">
+  <option value="14">
+  <option value="15">
+  <option value="16">
+  <option value="17">
+  <option value="18">
+  <option value="19">
+  <option value="20">
+  <option value="21">
+  <option value="22">
+  <option value="23">
+</datalist>
+
+<datalist id="minutes">
+  <option value="0">
+  <option value="1">
+  <option value="2">
+  <option value="3">
+  <option value="4">
+  <option value="5">
+  <option value="6">
+  <option value="7">
+  <option value="8">
+  <option value="9">
+  <option value="10">
+  <option value="11">
+  <option value="12">
+  <option value="13">
+  <option value="14">
+  <option value="15">
+  <option value="16">
+  <option value="17">
+  <option value="18">
+  <option value="19">
+  <option value="20">
+  <option value="21">
+  <option value="22">
+  <option value="23">
+  <option value="24">
+  <option value="25">
+  <option value="26">
+  <option value="27">
+  <option value="28">
+  <option value="29">
+  <option value="30">
+  <option value="31">
+  <option value="32">
+  <option value="33">
+  <option value="34">
+  <option value="35">
+  <option value="36">
+  <option value="37">
+  <option value="38">
+  <option value="39">
+  <option value="40">
+  <option value="41">
+  <option value="42">
+  <option value="43">
+  <option value="44">
+  <option value="45">
+  <option value="46">
+  <option value="47">
+  <option value="48">
+  <option value="49">
+  <option value="50">
+  <option value="51">
+  <option value="52">
+  <option value="53">
+  <option value="54">
+  <option value="55">
+  <option value="56">
+  <option value="57">
+  <option value="58">
+  <option value="59">
+</datalist>
+
+</div>
 
 <div id='main' class='flexbox flex_column' onmouseover='mouse_out_over(true)' onmouseout='mouse_out_over(false)'>
 

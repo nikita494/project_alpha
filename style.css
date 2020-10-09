@@ -18,6 +18,29 @@ body, html {
 	justify-content: space-around;
 }
 
+input{
+	color: white;
+	background: black;
+	border: 2px outset white;
+}
+
+input[type=button]{
+	display: block;
+	margin: auto;
+}
+#close_btn{
+	color: red;
+	background: black;
+}
+#confirm_btn {
+	background-color: green;
+	border-style: solid;
+	border-color: green;
+	border-width: 3px;
+	border-radius: 5px;
+	color: white;
+}
+
 #input_form_container{
 	position: absolute;
 	left: 10px;
@@ -28,24 +51,33 @@ body, html {
 #btn_set{
 	background-color: black;
 	visibility: hidden;
-	border: 2px outset green;
 	color: green;
 	font-size: 50px;
+	border: 1px solid black;
 }
 
-#btn_set:hover{
+#btn_set:hover {
 	color: red;
-	border: 2px inset red;
+ }
+ 
+#btn_set:focus{
+	outline: none;
 }
 
 h2 {
 	font-size:  3vw;
 }
 
+form[name=oper_time_setter]{
+	display: block;
+	margin-top: 10px;
+	border: 1px solid green;
+}
+
+
 #change_oper_time_form{
 	visibility: hidden;
-	color: black;
-	background: white;
+	color: white;
 	
 }
 
@@ -96,7 +128,7 @@ h2 {
 
 #oper_time, #oper_days{
 	vertical-align: middle;
-	font-size:6vw;
+	font-size: 6vw;
 }
 
 #time{
