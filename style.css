@@ -150,7 +150,7 @@ form[name=oper_time_setter]{
 }
 
 .time{
-	font-size: 5.5vw;
+	font-size: 5vw;
 }
 
 .date{
@@ -159,7 +159,7 @@ form[name=oper_time_setter]{
 
 #oper_days_time > div{
 	flex: 1 1;
-	margin-top: 50px;
+	margin-top: 25px;
 	font-size: 3.0vw;
 	text-align: center;
 	margin: 5px;
@@ -185,11 +185,11 @@ form[name=oper_time_setter]{
 }
 
 #khsk > div{
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 #msc > div{
-	margin-top: 20px;
+	margin-top: 10px;
 }
 .flex_column{
 	flex-direction: column;
