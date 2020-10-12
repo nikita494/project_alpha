@@ -12,21 +12,8 @@ body, html {
 	background-color: black;
 }
 
-.grid_container{
-	display: grid;
-	grid-template-columns: auto auto;
-}
-
-.grid_item{
-	padding: 5px;
-}
-
-.left{
-	text-align: left;
-}
-
-.right{
-	text-align: right;
+.change_oper_time_form{
+	visibility: hidden;
 }
 
 #main {
@@ -82,16 +69,25 @@ input[type='number']{
 	position: absolute;
 	left: 10px;
 	top: 10px;
-	z-index: 3;
+	z-index: 999999;
 }
 
 input::-webkit-calendar-picker-indicator {
-    filter: invert(1);
+	color: white;
+   filter: invert(1);
+}
+form[name='oper_time_setter'] .flexbox.flex_column{
+	align-items: flex-start;
+	justify-content: space-around;
+	margin: 10px;
+}
+
+.flex_item{
+	height: 25px;
 }
 
 #btn_set{
 	background-color: black;
-	visibility: hidden;
 	color: green;
 	font-size: 50px;
 	border: 1px solid black;
@@ -109,8 +105,7 @@ h2 {
 	font-size:  3vw;
 }
 
-form[name=oper_time_setter]{
-	padding: 10px;
+form[name='oper_time_setter']{
 	margin-top: 10px;
 	background: black;
 }
@@ -119,9 +114,8 @@ form[name=oper_time_setter]{
 #change_oper_time_form{
 	background: black;
 	border: 1px solid green;
-	visibility: hidden;
 	color: white;
-	
+	z-index: 9999;
 }
 
 #operative_time_and_date{
@@ -147,10 +141,11 @@ form[name=oper_time_setter]{
 
 .weekday{
 	font-size: 2vw;
+	text-transform: capitalize;
 }
 
 .time{
-	font-size: 5vw;
+	font-size: 6vw;
 }
 
 .date{

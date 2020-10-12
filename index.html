@@ -1,123 +1,129 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE HTML5>
 <html lang='ru'>
 <head>
+<script src='jquery-3.5.1.min.js'></script>
+<script src='date-time-format-timezone-complete.js'></script>
 <title>Final Countdown</title>
 <link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+<datalist id="hours">
+  <option value="0"/>
+  <option value="1"/>
+  <option value="2"/>
+  <option value="3"/>
+  <option value="4"/>
+  <option value="5"/>
+  <option value="6"/>
+  <option value="7"/>
+  <option value="8"/>
+  <option value="9"/>
+  <option value="10"/>
+  <option value="11"/>
+  <option value="12"/>
+  <option value="13"/>
+  <option value="14"/>
+  <option value="15"/>
+  <option value="16"/>
+  <option value="17"/>
+  <option value="18"/>
+  <option value="19"/>
+  <option value="20"/>
+  <option value="21"/>
+  <option value="22"/>
+  <option value="23"/>
+</datalist>
+
+<datalist id="minutes">
+  <option value="0"/>
+  <option value="1"/>
+  <option value="2"/>
+  <option value="3"/>
+  <option value="4"/>
+  <option value="5"/>
+  <option value="6"/>
+  <option value="7"/>
+  <option value="8"/>
+  <option value="9"/>
+  <option value="10"/>
+  <option value="11"/>
+  <option value="12"/>
+  <option value="13"/>
+  <option value="14"/>
+  <option value="15"/>
+  <option value="16"/>
+  <option value="17"/>
+  <option value="18"/>
+  <option value="19"/>
+  <option value="20"/>
+  <option value="21"/>
+  <option value="22"/>
+  <option value="23"/>
+  <option value="24"/>
+  <option value="25"/>
+  <option value="26"/>
+  <option value="27"/>
+  <option value="28"/>
+  <option value="29"/>
+  <option value="30"/>
+  <option value="31"/>
+  <option value="32"/>
+  <option value="33"/>
+  <option value="34"/>
+  <option value="35"/>
+  <option value="36"/>
+  <option value="37"/>
+  <option value="38"/>
+  <option value="39"/>
+  <option value="40"/>
+  <option value="41"/>
+  <option value="42"/>
+  <option value="43"/>
+  <option value="44"/>
+  <option value="45"/>
+  <option value="46"/>
+  <option value="47"/>
+  <option value="48"/>
+  <option value="49"/>
+  <option value="50"/>
+  <option value="51"/>
+  <option value="52"/>
+  <option value="53"/>
+  <option value="54"/>
+  <option value="55"/>
+  <option value="56"/>
+  <option value="57"/>
+  <option value="58"/>
+  <option value="59"/>
+</datalist>
 </head>
 <body>
 <div id='input_form_container' class='flexbox flex_column'>
 
-<div><button id='btn_set' onclick='move_on()'>&#9881;</button></div>
+<div><button id='btn_set'>&#9881;</button></div>
 
 <div id='change_oper_time_form'>
-<div id='form_header' class='flexbox flex_row'><label style='padding-left: 11px;'>Оперативное время</label><button onclick='move_on()' id='close_btn'>&#10060;</button></div>
-<form name='oper_time_setter' class='grid_container'>
-<div class='grid_item left'><label for='oper_date_in'>Дата:</label></div>
-<div class='grid_item right'><input type='date' lang='ru' name='oper_date_in' id='oper_date_in'/></div>
-<div class='grid_item left'><label for='oper_days_in'>Сутки:</label></div>
-<div class='grid_item right'><input type='number' min='0' name='oper_days_in' id='oper_days_in'/></div>
-<div class='grid_item left'><label for='oper_time_in'>Время:</label></div>
-<div class='grid_item right'><input list='hours' type='number' max='23' min='1' step='1' name='oper_hour_in' id='oper_hour_in'/>:<input list='minutes' type='number' max='59' min='0' step='1' name= 'oper_minute_in' id='oper_minute_in'/></div>
-<div class='grid_item left'><input type="button" value="Сброс" onclick='set_default()' id='clear_btn'/></div>
-<div class='grid_item right'><input type="button" value="Потвердить" onclick='set_oper_time()' id='confirm_btn'/></div>
+<div id='form_header' class='flexbox flex_row'><span style='padding-left: 11px;'>Оперативное время</span><button id='close_btn'>&#10060;</button></div>
+<form name='oper_time_setter' class='flexbox flex_row'>
+<div class='flexbox flex_column'>
+<div class='flex_item'><label for='oper_date_in'>Дата:</label></div>
+<div class='flex_item'><label for='oper_days_in'>Сутки:</label></div>
+<div class='flex_item'><label for='oper_hour_in'>Время:</label></div>
+<div class='flex_item'><input type="button" value="Сброс" id='clear_btn'/></div>
+</div>
+
+<div class='flexbox flex_column'>
+<div class='flex_item'><input type='date' style='width: 122px;' lang='ru' name='oper_date_in' id='oper_date_in'/></div>
+<div class='flex_item'><input type='number' value='1' min='0' name='oper_days_in' id='oper_days_in'/></div>
+<div class='flex_item'><input list='hours' type='number' max='23' min='1' step='1' name='oper_hour_in' id='oper_hour_in'/>:<input list='minutes' type='number' max='59' min='0' step='1' name='oper_minute_in' id='oper_minute_in'/></div>
+<div class='flex_item'><input type="button" value="Потвердить" id='confirm_btn'/></div>
+</div>
+
 </form>
 
 </div>
 
-<datalist id="hours">
-  <option value="0">
-  <option value="1">
-  <option value="2">
-  <option value="3">
-  <option value="4">
-  <option value="5">
-  <option value="6">
-  <option value="7">
-  <option value="8">
-  <option value="9">
-  <option value="10">
-  <option value="11">
-  <option value="12">
-  <option value="13">
-  <option value="14">
-  <option value="15">
-  <option value="16">
-  <option value="17">
-  <option value="18">
-  <option value="19">
-  <option value="20">
-  <option value="21">
-  <option value="22">
-  <option value="23">
-</datalist>
-
-<datalist id="minutes">
-  <option value="0">
-  <option value="1">
-  <option value="2">
-  <option value="3">
-  <option value="4">
-  <option value="5">
-  <option value="6">
-  <option value="7">
-  <option value="8">
-  <option value="9">
-  <option value="10">
-  <option value="11">
-  <option value="12">
-  <option value="13">
-  <option value="14">
-  <option value="15">
-  <option value="16">
-  <option value="17">
-  <option value="18">
-  <option value="19">
-  <option value="20">
-  <option value="21">
-  <option value="22">
-  <option value="23">
-  <option value="24">
-  <option value="25">
-  <option value="26">
-  <option value="27">
-  <option value="28">
-  <option value="29">
-  <option value="30">
-  <option value="31">
-  <option value="32">
-  <option value="33">
-  <option value="34">
-  <option value="35">
-  <option value="36">
-  <option value="37">
-  <option value="38">
-  <option value="39">
-  <option value="40">
-  <option value="41">
-  <option value="42">
-  <option value="43">
-  <option value="44">
-  <option value="45">
-  <option value="46">
-  <option value="47">
-  <option value="48">
-  <option value="49">
-  <option value="50">
-  <option value="51">
-  <option value="52">
-  <option value="53">
-  <option value="54">
-  <option value="55">
-  <option value="56">
-  <option value="57">
-  <option value="58">
-  <option value="59">
-</datalist>
-
 </div>
 
-<div id='main' class='flexbox flex_column' onmouseover='mouse_out_over(true)' onmouseout='mouse_out_over(false)'>
+<div id='main' class='flexbox flex_column'>
 
 <div id='operative_time_and_date' class='flexbox flex_column'>
 
@@ -140,7 +146,7 @@
 
 <div class='time_label'>
 <p>
-Время</br> 
+Время<br> 
 Московское
 </p>
 </div>
@@ -157,7 +163,7 @@
 
 <div class='time_label'>
 <p>
-Время</br> 
+Время<br> 
 Хабаровское
 </p>
 </div>
@@ -175,4 +181,5 @@
 </div>
 
 </body>
+ <script src='script.js'></script>
 </html>
