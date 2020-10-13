@@ -6,22 +6,23 @@ function minTwoDigits(n) {
 }
 
 var localStorage = window.localStorage;
-var oper_start_date;
 var oper_date = 'undef';
 var real_start_date;
+var oper_time;
 var can_close = true;
 
-if (localStorage.getItem('oper_start_date') === null | localStorage.getItem('oper_date') === null | localStorage.getItem('real_start_date') === null){
-	localStorage.clear()
+if (localStorage.getItem('oper_time') === null | localStorage.getItem('oper_date') === null | localStorage.getItem('real_start_date') === null){
+	localStorage.clear();
 }
 else{
-	oper_start_date = new Date(localStorage.getItem('oper_start_date'));
+	oper_time = parseInt(localStorage.getItem('oper_time'));
+	console.log(oper_time);
 	oper_date = new Date(localStorage.getItem('oper_date'));
 	real_start_date = new Date(localStorage.getItem('real_start_date'));
 }
 
 function set_default(){
-	oper_start_date = undefined;
+	oper_time = undefined;
 	oper_date = 'undef';
 	real_start_date = undefined;
 	localStorage.clear();
@@ -43,18 +44,12 @@ function move_on(){
 	var date = new Date(new Date().toLocaleString('en', {timeZone: 'Asia/Vladivostok'}));
 	var day = date.getDate(),
 		month = date.getMonth() + 1,
-		year = date.getFullYear(),
-		hour = date.getHours(),
-		min  = date.getMinutes();
+		year = date.getFullYear();
 	month = (month < 10 ? "0" : "") + month;
 	day = (day < 10 ? "0" : "") + day;
-	hour = (hour < 10 ? "0" : "") + hour;
-	min = (min < 10 ? "0" : "") + min;
 
 	var today = year + "-" + month + "-" + day;
-	document.getElementById('oper_date_in').value = today;      
-	document.getElementById("oper_hour_in").value = hour;
-	document.getElementById('oper_minute_in').value = min;
+	document.getElementById('oper_date_in').value = today;
 	form_elm.style.visibility = 'visible';
 	can_close = false;
 	}
@@ -69,14 +64,13 @@ function set_oper_time(){
 		real_start_date = new Date();
 		localStorage.setItem('real_start_date', real_start_date);
 		oper_date = new Date(date_in);
-		oper_date.setHours(hour_in);
-		oper_date.setMinutes(minute_in);
+		oper_date.setHours(real_start_date.getHours());
+		oper_date.setMinutes(real_start_date.getMinutes());
 		oper_date.setSeconds(real_start_date.getSeconds());
 		oper_date.setMilliseconds(real_start_date.getMilliseconds());
 		localStorage.setItem('oper_date', oper_date);
-		oper_start_date = new Date(new Date(date_in).getTime() + oper_date.getTimezoneOffset() * 60 * 1000 - days_in * 24 * 3600 * 1000);
-		localStorage.setItem('oper_start_date', oper_start_date);
-		console.log(oper_start_date);
+		oper_time = days_in * 24 * 3600 * 1000 + hour_in * 3600 * 1000 + minute_in * 60 * 1000;
+		localStorage.setItem('oper_time', oper_time);
 		form_elm = document.getElementById('change_oper_time_form');
 		form_elm.style.visibility = 'hidden';
 		can_close = true;
@@ -113,13 +107,18 @@ function update_time(){
 		document.getElementById('oper_date').innerHTML = date.toLocaleString('ru', {timeZone: 'Asia/Vladivostok', day: 'numeric', month: 'long', year: 'numeric'});
 	}
 	else{
-		oper_date = new Date(oper_date.getTime() + (new Date().getTime() -  real_start_date.getTime()));
+		time_diff = new Date().getTime() -  real_start_date.getTime();
+		oper_date = new Date(oper_date.getTime() + time_diff);
+		oper_time += time_diff;
+		console.log(oper_time);
 		real_start_date = new Date();
 		localStorage.setItem('real_start_date', real_start_date);
 		localStorage.setItem('oper_date', oper_date);
+		localStorage.setItem('oper_time', oper_time);
+		document.getElementById('oper_time').innerHTML = minTwoDigits(parseInt((oper_time / 1000 / 3600) % 24)) + ':' + minTwoDigits(parseInt((oper_time / 1000 / 60) % 60));
+		document.getElementById('oper_days').innerHTML = minTwoDigits(parseInt(oper_time / 1000 / 3600 / 24));
 		document.getElementById('oper_date').innerHTML = oper_date.toLocaleString('ru', {day: 'numeric', month: 'long', year: 'numeric'});
-		document.getElementById('oper_time').innerHTML = oper_date.toLocaleString('ru', {hour: '2-digit', minute: '2-digit'});
-		document.getElementById('oper_days').innerHTML = minTwoDigits(parseInt((oper_date.getTime() - oper_start_date.getTime()) / 1000 / 60 / 60 / 24));
+		real_start_date = new Date();
 	}
 }
 setInterval(update_time, 1000);
