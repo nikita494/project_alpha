@@ -40,14 +40,12 @@ function move_on(){
 		can_close = true;
 	}
 	else{
-	var date = new Date();
-
+	var date = new Date(new Date().toLocaleString('en', {timeZone: 'Asia/Vladivostok'}));
 	var day = date.getDate(),
 		month = date.getMonth() + 1,
 		year = date.getFullYear(),
 		hour = date.getHours(),
 		min  = date.getMinutes();
-
 	month = (month < 10 ? "0" : "") + month;
 	day = (day < 10 ? "0" : "") + day;
 	hour = (hour < 10 ? "0" : "") + hour;
