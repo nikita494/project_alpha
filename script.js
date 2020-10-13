@@ -40,14 +40,25 @@ function move_on(){
 		can_close = true;
 	}
 	else{
-		date = new Date()
-		form_elm.style.visibility = 'visible';
-		d2 = new Date(date.toLocaleString('ru', {timeZone: 'Asia/Vladivostok'}))
-		document.getElementById('oper_date_in').value = d2.getFullYear() + '-' + minTwoDigits(d2.getDate()) + '-' + minTwoDigits(d2.getMonth());
-		document.forms['oper_time_setter']['oper_hour_in'].value = date.toLocaleString('ru', {timeZone: 'Asia/Vladivostok', hour: '2-digit'});
-		document.forms['oper_time_setter']['oper_minute_in'].value = date.toLocaleString('ru', {timeZone: 'Asia/Vladivostok', minute: '2-digit'});
-		document.forms['oper_time_setter']['oper_days_in'].value = 1;
-		can_close = false;
+	var date = new Date();
+
+	var day = date.getDate(),
+		month = date.getMonth() + 1,
+		year = date.getFullYear(),
+		hour = date.getHours(),
+		min  = date.getMinutes();
+
+	month = (month < 10 ? "0" : "") + month;
+	day = (day < 10 ? "0" : "") + day;
+	hour = (hour < 10 ? "0" : "") + hour;
+	min = (min < 10 ? "0" : "") + min;
+
+	var today = year + "-" + month + "-" + day;
+	document.getElementById('oper_date_in').value = today;      
+	document.getElementById("oper_hour_in").value = hour;
+	document.getElementById('oper_minute_in').value = min;
+	form_elm.style.visibility = 'visible';
+	can_close = false;
 	}
 }
 
