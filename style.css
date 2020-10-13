@@ -19,10 +19,8 @@ body, html {
 
 .grid_item{
 	padding: 5px;
-}
-
-.left{
 	text-align: left;
+	height: 25px;
 }
 
 .right{
@@ -50,6 +48,10 @@ input[type="button"]{
 
 input[type='number']{
 	width: 58px;
+}
+
+input[type='date']{
+	width: 125px;
 }
 
 #close_btn{

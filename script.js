@@ -9,7 +9,6 @@ var localStorage = window.localStorage;
 var oper_date = 'undef';
 var real_start_date;
 var oper_time;
-var can_close = true;
 
 if (localStorage.getItem('oper_time') === null | localStorage.getItem('oper_date') === null | localStorage.getItem('real_start_date') === null){
 	localStorage.clear();
@@ -27,7 +26,6 @@ function set_default(){
 	real_start_date = undefined;
 	localStorage.clear();
 	console.log('cleared')
-	can_close = true;
 	document.getElementById('change_oper_time_form').style.visibility = 'hidden';
 	document.getElementById('oper_time').innerHTML = '00:00';
 	document.getElementById('oper_days').innerHTML = '01';
@@ -38,20 +36,20 @@ function move_on(){
 	form_elm = document.getElementById('change_oper_time_form');
 	if (form_elm.style.visibility == 'visible'){
 		form_elm.style.visibility = 'hidden';
-		can_close = true;
 	}
 	else{
-	var date = new Date(new Date().toLocaleString('en', {timeZone: 'Asia/Vladivostok'}));
-	var day = date.getDate(),
-		month = date.getMonth() + 1,
-		year = date.getFullYear();
-	month = (month < 10 ? "0" : "") + month;
-	day = (day < 10 ? "0" : "") + day;
+		var date = new Date(new Date().toLocaleString('en', {timeZone: 'Asia/Vladivostok'}));
+		var day = date.getDate(),
+			month = date.getMonth() + 1,
+			year = date.getFullYear();
+		month = (month < 10 ? "0" : "") + month;
+		day = (day < 10 ? "0" : "") + day;
 
-	var today = year + "-" + month + "-" + day;
-	document.getElementById('oper_date_in').value = today;
-	form_elm.style.visibility = 'visible';
-	can_close = false;
+		var today = year + "-" + month + "-" + day;
+		document.getElementById('oper_date_in').value = today;
+		document.getElementById('oper_hour_in').value = '0';
+		document.getElementById('oper_minute_in').value = '0';
+		form_elm.style.visibility = 'visible';
 	}
 }
 
@@ -73,14 +71,12 @@ function set_oper_time(){
 		localStorage.setItem('oper_time', oper_time);
 		form_elm = document.getElementById('change_oper_time_form');
 		form_elm.style.visibility = 'hidden';
-		can_close = true;
 	}
 }
 
 function mouse_out_over(is_over){
-	if (is_over & can_close){
+	if (is_over & document.getElementById('change_oper_time_form').style.visibility == 'hidden'){
 		document.getElementById('btn_set').style.visibility = 'hidden';
-		document.getElementById('change_oper_time_form').style.visibility = 'hidden';
 		
 	}
 	else{
