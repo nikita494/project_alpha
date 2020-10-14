@@ -114,10 +114,11 @@ input::-webkit-calendar-picker-indicator {
 
 #btn_set{
 	background-color: black;
+	border: 1px solid black;
 	visibility: hidden;
 	color: green;
 	font-size: 50px;
-	border: 1px solid;
+	
 }
 
 #btn_set:hover {
