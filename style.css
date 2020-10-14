@@ -12,6 +12,29 @@ body, html {
 	background-color: black;
 }
 
+input.rightAligned {
+	direction: ltr;
+	overflow:hidden;
+}
+input.rightAligned:not(:focus) {
+	direction: rtl;
+	text-align: left;
+	unicode-bidi: plaintext;
+	text-overflow: ellipsis;
+}
+
+input.leftAligned {
+	direction: ltr;
+	overflow: hidden;
+}
+
+input.leftAligned:not(:focus){
+	direction: rtl;
+	text-align: center;
+	unicode-bidi: plaintext;
+	text-overflow: ellipsis;
+}
+
 .grid_container{
 	display: grid;
 	grid-template-columns: auto auto;
@@ -39,7 +62,6 @@ input{
 	color: white;
 	background: black;
 	border: 2px outset white;
-	text-align: right;
 }
 
 input[type="button"]{
