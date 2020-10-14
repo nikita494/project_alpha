@@ -86,7 +86,6 @@ input[type='date']{
 #confirm_btn {
 	background-color: green;
 	border-style: solid;
-	border-color: green;
 	border-width: 3px;
 	border-radius: 5px;
 	color: white;
@@ -96,7 +95,6 @@ input[type='date']{
 #clear_btn{
 	background-color: red;
 	border-style: solid;
-	border-color: red;
 	border-width: 3px;
 	border-radius: 5px;
 	color: white;
@@ -119,7 +117,7 @@ input::-webkit-calendar-picker-indicator {
 	visibility: hidden;
 	color: green;
 	font-size: 50px;
-	border: 1px solid black;
+	border: 1px solid;
 }
 
 #btn_set:hover {
