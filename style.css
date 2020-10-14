@@ -39,6 +39,7 @@ input{
 	color: white;
 	background: black;
 	border: 2px outset white;
+	text-align: right;
 }
 
 input[type="button"]{
