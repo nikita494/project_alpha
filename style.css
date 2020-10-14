@@ -131,7 +131,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 h2 {
-	font-size:  3vw;
+	font-size:  4vw;
 }
 
 form[name=oper_time_setter]{
@@ -167,36 +167,36 @@ form[name=oper_time_setter]{
 }
 
 .time_label{
-	font-size: 3.5vw;
+	font-size: 4vw;
 }
 
 .weekday{
-	font-size: 2vw;
+	font-size: 3vw;
 }
 
 .time{
-	font-size: 5.5vw;
+	font-size: 7vw;
 }
 
 .date{
-	font-size: 2vw;
+	font-size: 3vw;
 }
 
 #oper_days_time > div{
 	flex: 1 1;
 	margin-top: 50px;
-	font-size: 3.0vw;
+	font-size: 3.5vw;
 	text-align: center;
 	margin: 5px;
 }
 
 #oper_date{
-	font-size: 2.5vw;
+	font-size: 3vw;
 }
 
 #oper_time, #oper_days{
 	vertical-align: middle;
-	font-size: 6vw;
+	font-size: 8vw;
 }
 
 #time{

@@ -75,7 +75,7 @@ function set_oper_time(){
 }
 
 function mouse_out_over(is_over){
-	if (is_over & document.getElementById('change_oper_time_form').style.visibility == 'hidden'){
+	if (is_over & document.getElementById('change_oper_time_form').style.visibility != 'visible'){
 		document.getElementById('btn_set').style.visibility = 'hidden';
 		
 	}
