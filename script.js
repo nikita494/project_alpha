@@ -9,13 +9,15 @@ var localStorage = window.localStorage;
 var oper_date = 'undef';
 var real_start_date;
 var oper_time;
+var start_stopwatch_time;
+var stopwatch_time = 0;
+var is_stopwatch_running = false;
 
 if (localStorage.getItem('oper_time') === null | localStorage.getItem('oper_date') === null | localStorage.getItem('real_start_date') === null){
 	localStorage.clear();
 }
 else{
 	oper_time = parseInt(localStorage.getItem('oper_time'));
-	console.log(oper_time);
 	oper_date = new Date(localStorage.getItem('oper_date'));
 	real_start_date = new Date(localStorage.getItem('real_start_date'));
 }
@@ -88,6 +90,27 @@ function validate(hour_in, minute_in, days_in){
 		return (Number.isInteger(hour_in) & Number.isInteger(minute_in) & Number.isInteger(days_in));
 }
 
+function start_stop_stopwatch(){
+	if (is_stopwatch_running){
+		is_stopwatch_running = false;
+		document.getElementById('start_stop_btn').innerHTML = '&#9654;';
+	}
+	else{
+		is_stopwatch_running = true;
+		start_stopwatch_time = new Date();
+		document.getElementById('start_stop_btn').innerHTML = '&#10074; &#10074;';
+	}
+}
+
+function reset_stopwatch(){
+	is_stopwatch_running = false;
+	stopwatch_time = 0;
+	document.getElementById('start_stop_btn').innerHTML = '&#9654;';
+	document.getElementById('stopwatch_hours').innerHTML = '00';
+	document.getElementById('stopwatch_minute').innerHTML = '00';
+	document.getElementById('stopwatch_seconds').innerHTML = '00';
+}
+
 function update_time(){
 	var date = new Date();
 	var weeksays = document.getElementsByClassName('weekday');
@@ -115,6 +138,13 @@ function update_time(){
 		document.getElementById('oper_days').innerHTML = minTwoDigits(parseInt(oper_time / 1000 / 3600 / 24));
 		document.getElementById('oper_date').innerHTML = oper_date.toLocaleString('ru', {day: 'numeric', month: 'long', year: 'numeric'});
 		real_start_date = new Date();
+	}
+	if (is_stopwatch_running){
+		stopwatch_time += date - start_stopwatch_time;
+		document.getElementById('stopwatch_hours').innerHTML = minTwoDigits(parseInt(stopwatch_time / 1000 / 3600));
+		document.getElementById('stopwatch_minute').innerHTML = minTwoDigits(parseInt((stopwatch_time / 1000 / 60) % 60));
+		document.getElementById('stopwatch_seconds').innerHTML = minTwoDigits(parseInt((stopwatch_time / 1000) % 60));
+		start_stopwatch_time = new Date();
 	}
 }
 setInterval(update_time, 1000);

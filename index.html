@@ -8,6 +8,19 @@
 <script src="script.js"></script>
 </head>
 <body>
+
+<div id='stopwatch' class='flexbox flex_column'>
+<div style='font-size: 2vw;'>Секундамер</div>
+
+<div id='stopwatch_time' class='time_label'><span id='stopwatch_hours'>00</span>:<span id='stopwatch_minute'>00</span>:<span id='stopwatch_seconds'>00</span></div>
+
+<div id ='stopwatch_buttons' class='flexbox flex_row'>
+<button id='start_stop_btn' onclick='start_stop_stopwatch()'>&#9654;</button> 
+<button id='reset' onclick='reset_stopwatch()'>&#8635;</button>
+</div>
+
+</div>
+
 <div id='input_form_container' class='flexbox flex_column'>
 
 <div><button id='btn_set' onclick='move_on()'>&#9881;</button></div>
