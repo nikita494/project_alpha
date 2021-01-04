@@ -10,13 +10,13 @@
 <body>
 
 <div id='stopwatch' class='flexbox flex_column'>
-<div style='font-size: 2vw;'>Секундамер</div>
+<div style='font-size: 2vw;'>Секундомер</div>
 
 <div id='stopwatch_time' class='time_label'><span id='stopwatch_hours'>00</span>:<span id='stopwatch_minute'>00</span>:<span id='stopwatch_seconds'>00</span></div>
 
 <div id ='stopwatch_buttons' class='flexbox flex_row'>
-<button id='start_stop_btn' onclick='start_stop_stopwatch()'>&#9654;</button> 
-<button id='reset' onclick='reset_stopwatch()'>&#8635;</button>
+<button id='start_stop_btn' onclick='start_stop_stopwatch()' title='Cтарт/Стоп'>&#9654;</button> 
+<button id='reset' onclick='reset_stopwatch()' title='Сброс'>&#8635;</button>
 </div>
 
 </div>
@@ -39,6 +39,9 @@
 <div class='flexbox flex_row' style='justify-content: space-around;'>
 <div style='padding-left: 0px;padding-right: 26px;margin-left: 37px;'><input type="button" value="Сброс" onclick='set_default()' id='clear_btn'/></div>
 <div><input type="button" value="Потвердить" onclick='set_oper_time()' id='confirm_btn'/></div>
+</div>
+<div>
+<input type='checkbox' id='stopwatch_checkbox' onclick='open_close_stopwatch()' name='stopwatch_activator'><label for='stopwatch_activator'>Секундомер</label>
 </div>
 </form>
 

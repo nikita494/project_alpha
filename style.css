@@ -230,6 +230,7 @@ form[name=oper_time_setter]{
     border-width: 3px;
     border-radius: 5px;
 	border-color: green;
+	width: 15%;
 }
 
 #stopwatch_buttons{
@@ -237,11 +238,16 @@ form[name=oper_time_setter]{
 }
 
 #stopwatch{
+	text-align: center;
+	display: none;
 	position: absolute;
     top: 50%;
     left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-53%, -50%);
 	z-index: 3;
+	border: 1px solid green;
+	padding: 2.5%;
+	background-color: black;
 }
 
 #stopwatch > div{

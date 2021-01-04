@@ -22,6 +22,16 @@ else{
 	real_start_date = new Date(localStorage.getItem('real_start_date'));
 }
 
+function hotkey_handler(e){
+	console.log(e)
+	if (e.key == ' ' & document.getElementById('stopwatch').style.display == 'block'){
+		start_stop_stopwatch();
+	}
+	else if (e.key == 'r' & document.getElementById('stopwatch').style.display == 'block'){
+		reset_stopwatch();
+	}
+}
+
 function set_default(){
 	oper_time = undefined;
 	oper_date = 'undef';
@@ -147,4 +157,20 @@ function update_time(){
 		start_stopwatch_time = new Date();
 	}
 }
+
+function open_close_stopwatch(){
+	elem = document.getElementById('stopwatch');
+	if (elem.style.display == 'none' | elem.style.display == ''){
+		elem.style.display = 'block';
+	}
+	else{
+		if (!is_stopwatch_running){
+			elem.style.display = 'none';
+		}
+		else{
+			document.getElementById('stopwatch_checkbox').checked = true;
+		}
+	}
+}
+document.onkeypress = hotkey_handler;
 setInterval(update_time, 1000);
