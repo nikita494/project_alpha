@@ -23,11 +23,12 @@ else{
 }
 
 function hotkey_handler(e){
+	elem = document.getElementById('stopwatch');
 	console.log(e)
-	if (e.key == ' '){
+	if (e.key == ' ' & elem.style.display == 'block'){
 		start_stop_stopwatch();
 	}
-	else if (e.key == 'r'){
+	else if (e.key == 'r' & elem.style.display == 'block'){
 		reset_stopwatch();
 	}
 	else if (e.key == 's'){
@@ -165,9 +166,11 @@ function open_close_stopwatch(){
 	elem = document.getElementById('stopwatch');
 	if (elem.style.display == 'none' | elem.style.display == ''){
 		elem.style.display = 'block';
+		document.getElementById('stopwatch_checkbox').checked = true;
 	}
 	else{
 		elem.style.display = 'none';
+		document.getElementById('stopwatch_checkbox').checked = false;
 	}
 }
 document.onkeypress = hotkey_handler;

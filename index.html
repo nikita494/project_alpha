@@ -10,8 +10,7 @@
 <body>
 
 <div id='stopwatch' class='flexbox flex_column'>
-<div class='flexbox flex_row' id='close_stopwatch' style='justify-content: flex-end;'><button onclick='open_close_stopwatch()' style='display: block;color: red;background: black;'>&#10060;</button></div>
-<div style='font-size: 2vw;'>Секундомер</div>
+<div id='stopwatch_header' class='flexbox flex_row'><span>Секундомер</span><button id='close_stopwatch' onclick='open_close_stopwatch()'>&#10060;</button></div>
 
 <div id='stopwatch_time' class='time_label'><span id='stopwatch_hours'>00</span>:<span id='stopwatch_minute'>00</span>:<span id='stopwatch_seconds'>00</span></div>
 
@@ -39,8 +38,8 @@
 <div class='grid_item'><label for='stopwatch_activator'>Секундомер:</label></div>
 <div class='grid_item'><input type='checkbox' id='stopwatch_checkbox' onclick='open_close_stopwatch()' name='stopwatch_activator'></div>
 </div>
-<div class='flexbox flex_row' style='justify-content: space-around;'>
-<div style='padding-left: 0px;padding-right: 26px;margin-left: 37px;'><input type="button" value="Сброс" onclick='set_default()' id='clear_btn'/></div>
+<div class='flexbox flex_row' style='justify-content: flex-end;'>
+<div style='margin-right: 40px;'><input type="button" value="Сброс" onclick='set_default()' id='clear_btn'/></div>
 <div><input type="button" value="Потвердить" onclick='set_oper_time()' id='confirm_btn'/></div>
 </div>
 </form>

@@ -246,8 +246,7 @@ form[name=oper_time_setter]{
 	transform: translate(-53%, -50%);
 	z-index: 3;
 	border: 1px solid green;
-	padding: 2.5%;
-	padding-top: 0;
+	padding: 20px;
 	background-color: black;
 }
 
@@ -256,8 +255,16 @@ form[name=oper_time_setter]{
 }
 
 #close_stopwatch{
-	margin-left: 16%;
-	margin-bottom: 16%;
+	color: red;
+	background-color: black;
+}
+
+#stopwatch_header > span{
+	color: white;
+}
+
+#stopwatch_header{
+	justify-content: space-between;
 }
 
 #stopwatch > div{
