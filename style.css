@@ -247,7 +247,17 @@ form[name=oper_time_setter]{
 	z-index: 3;
 	border: 1px solid green;
 	padding: 2.5%;
+	padding-top: 0;
 	background-color: black;
+}
+
+#stopwatch_checkbox{
+	display: inline-block;
+}
+
+#close_stopwatch{
+	margin-left: 16%;
+	margin-bottom: 16%;
 }
 
 #stopwatch > div{
