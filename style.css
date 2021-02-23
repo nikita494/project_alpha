@@ -54,7 +54,6 @@ input.leftAligned:not(:focus){
 	margin: auto;
 	width: 80%;
 	height: 100%;
-	justify-content: space-between;
 }
 
 input{
@@ -211,11 +210,11 @@ form[name=oper_time_setter]{
 }
 
 #khsk > div{
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 #msc > div{
-	margin-top: 20px;
+	margin-top: 10px;
 }
 .flex_column{
 	flex-direction: column;
