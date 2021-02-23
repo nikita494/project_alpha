@@ -54,7 +54,7 @@ input.leftAligned:not(:focus){
 	margin: auto;
 	width: 80%;
 	height: 100%;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 
 input{
@@ -192,7 +192,7 @@ form[name=oper_time_setter]{
 }
 
 #oper_date{
-	font-size: 4vw;
+	font-size: 5.5vw;
 }
 
 #oper_time, #oper_days{
@@ -269,4 +269,11 @@ form[name=oper_time_setter]{
 
 #stopwatch > div{
 	color: red;
+}
+
+#version{
+	color: #151515;
+	position: absolute;
+	right: 0px;
+	top: 0px;
 }
