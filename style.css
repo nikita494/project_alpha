@@ -200,6 +200,7 @@ form[name=oper_time_setter]{
 }
 
 #time{
+	margin-top: 4vh;
 	justify-content: space-around;
 	color: rgb(0, 255, 0);
 	text-align: center;
