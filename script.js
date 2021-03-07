@@ -129,15 +129,15 @@ function update_time(){
 	var date = new Date();
 	var weeksays = document.getElementsByClassName('weekday');
 	weeksays[0].innerHTML = capitalizeFirstLetter(date.toLocaleString('ru', {timeZone: 'Europe/Moscow', weekday: 'long'}).split(', ')[0]);
-	weeksays[1].innerHTML = capitalizeFirstLetter(date.toLocaleString('ru', {timeZone: 'Asia/Vladivostok', weekday: 'long'}).split(', ')[0]);
+	weeksays[1].innerHTML = capitalizeFirstLetter(date.toLocaleString('ru', {weekday: 'long'}).split(', ')[0]);
 	var times = document.getElementsByClassName('time');
 	times[0].innerHTML = date.toLocaleString('ru', {timeZone: 'Europe/Moscow', hour: '2-digit', minute: '2-digit', second: '2-digit'});
-	times[1].innerHTML = date.toLocaleString('ru', {timeZone: 'Asia/Vladivostok', hour: '2-digit', minute: '2-digit', second: '2-digit'});
+	times[1].innerHTML = date.toLocaleString('ru', {hour: '2-digit', minute: '2-digit', second: '2-digit'});
 	var dates = document.getElementsByClassName('date');
 	dates[0].innerHTML = date.toLocaleString('ru', {timeZone: 'Europe/Moscow', day: 'numeric', month: 'long', year: 'numeric'});
-	dates[1].innerHTML = date.toLocaleString('ru', {timeZone: 'Asia/Vladivostok', day: 'numeric', month: 'long', year: 'numeric'});
+	dates[1].innerHTML = date.toLocaleString('ru', {day: 'numeric', month: 'long', year: 'numeric'});
 	if (oper_date == 'undef'){
-		document.getElementById('oper_date').innerHTML = date.toLocaleString('ru', {timeZone: 'Asia/Vladivostok', day: 'numeric', month: 'long', year: 'numeric'});
+		document.getElementById('oper_date').innerHTML = date.toLocaleString('ru', {day: 'numeric', month: 'long', year: 'numeric'});
 	}
 	else{
 		time_diff = new Date().getTime() -  real_start_date.getTime();
