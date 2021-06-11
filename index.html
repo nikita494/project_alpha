@@ -10,6 +10,7 @@
 <body>
 
 <div id='stopwatch' class='flexbox flex_column'>
+
 <div id='stopwatch_header' class='flexbox flex_row'><span>Секундомер</span><button id='close_stopwatch' onclick='open_close_stopwatch()'>&#10060;</button></div>
 
 <div id='stopwatch_time' class='time_label'><span id='stopwatch_hours'>00</span>:<span id='stopwatch_minute'>00</span>:<span id='stopwatch_seconds'>00</span></div>
@@ -21,8 +22,29 @@
 
 </div>
 
+<div id='settings' class='flexbox flex_column'>
+
+<div id='settings_header' class='flexbox flex_row'><span>Настройки</span><button id='close_settings' onclick='open_close_settings()'>&#10060;</button></div>
+
+<form name='settings_form'>
+
+<div class='grid_container'>
+
+<div class='grid_item'><label for='timezone'>Часовой пояс:</label></div>
+<div class='grid_item'><input type='number' value='0' name='timezone'/></div> 
+<div class='grid_item'><label for='timezone_label'>Место:</label></div>
+<div class='grid_item'><input type='text' value='Местное' name='timezone_label'></div>
+
+</div>
+
+<div id='settings_confirm_btn'><input type="button" value="Потвердить" onclick='set_settings()' class='confirm_btn'/></div>
+
+</form>
+
+</div>
+
 <div id='version'>
-1.00
+1.20
 </div>
 
 <div id='input_form_container' class='flexbox flex_column'>
@@ -41,10 +63,12 @@
 <div class='grid_item'><input list='hours' class='rightAligned' type='number' max='23' min='0' step='1' name='oper_hour_in' id='oper_hour_in'/>:<input list='minutes' class='rightAligned' type='number' max='59' min='0' step='1' name='oper_minute_in' id='oper_minute_in'/></div>
 <div class='grid_item'><label for='stopwatch_activator'>Секундомер:</label></div>
 <div class='grid_item'><input type='checkbox' id='stopwatch_checkbox' onclick='open_close_stopwatch()' name='stopwatch_activator'></div>
+<div class='grid_item'><label for='settings_activator'>Настройки:</label></div>
+<div class='grid_item'><input type='checkbox' id='settings_checkbox' onclick='open_close_settings()' name='settings_activator'></div>
 </div>
 <div class='flexbox flex_row' style='justify-content: flex-end;'>
 <div style='margin-right: 40px;'><input type="button" value="Сброс" onclick='set_default()' id='clear_btn'/></div>
-<div><input type="button" value="Потвердить" onclick='set_oper_time()' id='confirm_btn'/></div>
+<div><input type="button" value="Потвердить" onclick='set_oper_time()' class='confirm_btn'/></div>
 </div>
 </form>
 
@@ -183,7 +207,7 @@
 <div class='time_label'>
 <p>
 Время<br> 
-Местное
+<span id='timezone_label'>Местное<span>
 </p>
 </div>
 

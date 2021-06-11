@@ -12,6 +12,10 @@ body, html {
 	background-color: black;
 }
 
+form[name="settings_forms"]{
+	color: white;
+}
+
 input.rightAligned {
 	direction: ltr;
 	overflow:hidden;
@@ -82,7 +86,7 @@ input[type='date']{
 	margin-right: 14px;
 }
 
-#confirm_btn {
+.confirm_btn {
 	background-color: green;
 	border-style: solid;
 	border-width: 3px;
@@ -131,7 +135,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 h2 {
-	font-size:  4vw;
+	font-size:  calc(2vw + 2vh);
 }
 
 form[name=oper_time_setter]{
@@ -167,40 +171,40 @@ form[name=oper_time_setter]{
 }
 
 .time_label{
-	font-size: 4vw;
+	font-size: calc(3vw + 1vh);
 }
 
 .weekday{
-	font-size: 3vw;
+	font-size: calc(2.5vw + 0.5vh);
 }
 
 .time{
-	font-size: 7vw;
+	font-size: calc(5.5vw + 1.5vh);
 }
 
 .date{
-	font-size: 3vw;
+	font-size: calc(2vw + 1vh);
 }
 
 #oper_days_time > div{
 	flex: 1 1;
 	margin-top: 50px;
-	font-size: 3.5vw;
+	font-size: calc(2vw + 0.5vh);
 	text-align: center;
 	margin: 5px;
 }
 
 #oper_date{
-	font-size: 5.5vw;
+	font-size: calc(4vw + 1.5vh);
 }
 
 #oper_time, #oper_days{
 	vertical-align: middle;
-	font-size: 8vw;
+	font-size: calc(6vw + 2vh);
 }
 
 #time{
-	margin-top: 4vh;
+	margin-top: calc(3vw + 1vh);
 	justify-content: space-around;
 	color: rgb(0, 255, 0);
 	text-align: center;
@@ -222,7 +226,7 @@ form[name=oper_time_setter]{
 }
 
 #start_stop_btn, #reset{
-	font-size: 1.5vw;
+	font-size: calc(1vw + 0.5vh);
 	color: white;
 	background-color: green;
 	display: block;
@@ -233,11 +237,12 @@ form[name=oper_time_setter]{
 	width: 15%;
 }
 
+
 #stopwatch_buttons{
 	justify-content: space-evenly;
 }
 
-#stopwatch{
+#stopwatch, #settings{
 	text-align: center;
 	display: none;
 	position: absolute;
@@ -250,25 +255,34 @@ form[name=oper_time_setter]{
 	background-color: black;
 }
 
-#stopwatch_checkbox{
+#stopwatch_checkbox, #settings_checkbox{
 	display: inline-block;
 }
 
-#close_stopwatch{
+
+#close_stopwatch, #close_settings{
 	color: red;
 	background-color: black;
 }
 
-#stopwatch_header > span{
+#stopwatch_header > span, #settings_header > span{
 	color: white;
 }
 
-#stopwatch_header{
+#stopwatch_header, #settings_header{
 	justify-content: space-between;
 }
 
 #stopwatch > div{
 	color: red;
+}
+
+#settings{
+	color: white;
+}
+
+#settings_confirm_btn{
+	margin-top: 3%;
 }
 
 #version{
