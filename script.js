@@ -51,7 +51,7 @@ function set_default(){
 	console.log('cleared')
 	document.getElementById('change_oper_time_form').style.visibility = 'hidden';
 	document.getElementById('oper_time').innerHTML = '00:00';
-	document.getElementById('oper_days').innerHTML = '01';
+	document.getElementById('oper_days').innerHTML = '00';
 	document.getElementById('oper_date').innerHTML = '1 января 1970 г.'
 }
  
