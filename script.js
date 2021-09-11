@@ -1,11 +1,4 @@
-﻿function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-function minTwoDigits(n) {
-  return (n < 10 ? '0' : '') + n;
-}
-
-var localStorage = window.localStorage;
+﻿var localStorage = window.localStorage;
 var oper_date;
 var real_start_date;
 var oper_time;
@@ -13,20 +6,30 @@ var start_stopwatch_time;
 var is_data_loaded = false;
 var stopwatch_time = 0;
 var is_stopwatch_running = false;
-var timeZoneOffset = 0
+var timeZoneOffset = 0;
+
+if(!(localStorage.getItem('timeZoneOffset') === null)){
+		timeZoneOffset = parseInt(localStorage.getItem('timeZoneOffset'));
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+function minTwoDigits(n) {
+  return (n < 10 ? '0' : '') + n;
+}
+
+document.onload = function(e){
+	if(!(localStorage.getItem('timezone_label') === null)){
+		document.getElementById('timezone_label').innerHTML = localStorage.getItem('timezone_label');
+	}
+}
 
 if (!(localStorage.getItem('oper_time') === null | localStorage.getItem('oper_date') === null | localStorage.getItem('real_start_date') === null)){
 	is_data_loaded = true;
 	real_start_date = new Date(localStorage.getItem('real_start_date'));
 	oper_time = parseInt(localStorage.getItem('oper_time'));
 	oper_date = new Date(localStorage.getItem('oper_date'));
-}
-
-window.onload = function(e){
-	if(!(localStorage.getItem('timeZoneOffset') === null | localStorage.getItem('timezone_label') === null)){
-		timeZoneOffset = parseInt(localStorage.getItem('timeZoneOffset'));
-		document.getElementById('timezone_label').innerHTML = localStorage.getItem('timezone_label');
-	}
 }
 
 function hotkey_handler(e){
@@ -45,9 +48,10 @@ function hotkey_handler(e){
 
 function set_default(){
 	oper_time = undefined;
-	oper_date = 'undef';
+	oper_date = undefined;
 	real_start_date = undefined;
 	localStorage.clear();
+	localStorage.setItem('timeZoneOffset', timeZoneOffset)
 	console.log('cleared')
 	document.getElementById('change_oper_time_form').style.visibility = 'hidden';
 	document.getElementById('oper_time').innerHTML = '00:00';
@@ -153,7 +157,7 @@ function update_time(){
 	var dates = document.getElementsByClassName('date');
 	dates[0].innerHTML = date.toLocaleString('ru', {timeZone: 'Europe/Moscow', day: 'numeric', month: 'long', year: 'numeric'});
 	dates[1].innerHTML = offsetDate.toLocaleString('ru', {day: 'numeric', month: 'long', year: 'numeric'});
-	if (oper_date == 'undef'){
+	if (typeof(oper_date) == 'undefined'){
 		document.getElementById('oper_date').innerHTML = date.toLocaleString('ru', {day: 'numeric', month: 'long', year: 'numeric'});
 	}
 	else{
@@ -194,6 +198,8 @@ function open_close_stopwatch(){
 }
 
 function open_close_settings(){
+	document.forms['settings_form']['timezone'].value = parseInt(timeZoneOffset / 1000 / 3600);
+	document.forms['settings_form']['timezone_label'].value = document.getElementById('timezone_label').innerText;
 	elem = document.getElementById('settings');
 	if (elem.style.display == 'none' | elem.style.display == ''){
 		elem.style.display = 'block';
