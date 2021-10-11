@@ -5,6 +5,7 @@ var oper_time;
 var start_stopwatch_time;
 var is_data_loaded = false;
 var stopwatch_time = 0;
+var is_label_loaded = false;
 var is_stopwatch_running = false;
 var timeZoneOffset = 0;
 
@@ -17,12 +18,6 @@ function capitalizeFirstLetter(string) {
 }
 function minTwoDigits(n) {
   return (n < 10 ? '0' : '') + n;
-}
-
-document.onload = function(e){
-	if(!(localStorage.getItem('timezone_label') === null)){
-		document.getElementById('timezone_label').innerHTML = localStorage.getItem('timezone_label');
-	}
 }
 
 if (!(localStorage.getItem('oper_time') === null | localStorage.getItem('oper_date') === null | localStorage.getItem('real_start_date') === null)){
@@ -43,7 +38,7 @@ function hotkey_handler(e){
 	}
 	else if (e.key == 's'){
 		open_close_stopwatch();
-	}	
+	}
 }
 
 function set_default(){
@@ -58,7 +53,7 @@ function set_default(){
 	document.getElementById('oper_days').innerHTML = '00';
 	document.getElementById('oper_date').innerHTML = '1 января 1970 г.'
 }
- 
+
 function move_on(){
 	form_elm = document.getElementById('change_oper_time_form');
 	if (form_elm.style.visibility == 'visible'){
@@ -113,7 +108,7 @@ function set_oper_time(){
 function mouse_out_over(is_over){
 	if (is_over & document.getElementById('change_oper_time_form').style.visibility != 'visible'){
 		document.getElementById('btn_set').style.visibility = 'hidden';
-		
+
 	}
 	else{
 		document.getElementById('btn_set').style.visibility = 'visible';
@@ -146,6 +141,10 @@ function reset_stopwatch(){
 }
 
 function update_time(){
+	if(!(localStorage.getItem('timezone_label') === null) & !is_data_loaded){
+		document.getElementById('timezone_label').innerHTML = localStorage.getItem('timezone_label');
+		is_data_loaded = true;
+	}
 	var date = new Date();
 	var offsetDate = new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000 + timeZoneOffset)
 	var weeksays = document.getElementsByClassName('weekday');
